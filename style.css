@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Pirou";
-  src: url("font/Pirou-Regular.woff") format("woff");
+  src: url("/font/Pirou-Regular.woff") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -9,35 +9,31 @@
   font-family: "Pirou", sans-serif;
   color: white;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
   background-image: url("/images/fundo.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  position: relative;
+  z-index: 0;
 }
 
 body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.9);
   z-index: -1;
-
-}
-
-html, body {
-  height: auto;
-  min-height: 100vh; /* garante que o fundo cubra a tela */
-  overflow-x: hidden;
 }
 
 
@@ -53,7 +49,6 @@ html, body {
   display: flex;
   align-items: center;
   margin-left: 10%;
-  margin-top: 40px;
 }
 
 .halter {
@@ -61,63 +56,64 @@ html, body {
   height: 30px;
 }
 
-#intro-container, #content1.active {
+.tabs {
   display: flex;
-  justify-content: center; /* centraliza tudo */
-  align-items: center;      /* alinha verticalmente */
-  flex-wrap: wrap;          /* para não estourar em telas pequenas */
-  gap: 40px;                /* espaço entre texto e logo */
-  margin-top: 100px;
-}
-
-#letramento {
-  max-width: 600px;
-  text-align: left;
-  position: static; /* remove posicionamento antigo */
-
-  
-}
-
-#logo {
-  height: 300px;
-  margin: 0;
-  position: static; /* remove left, bottom, etc */
-  
-}
-
-
-
-
-h1 {
-  font-size: 80px;
-  color: red;
-  border-bottom: 8px solid #eb1c1c;
-  margin: 0;
-  padding: 0;
-  line-height: 1.2;
-  position: relative;
-}
-
-h1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(to right, #ffffff, #ff0000);
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
+  margin-left: auto;
   gap: 20px;
 }
 
+.tab, .home {
+  padding: 5px 15px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  left: 300px;
+  position: relative;
+}
+
+.tab{
+  height: 35px;
+}
+
+.tab:hover, .home:hover {
+  background-color: #333;
+}
+
+.tab.active {
+  border-bottom: 4px solid #eb1c1c;
+}
+
+.home img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Container dos cards */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px 5%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Card */
 .item {
   flex: 1 1 300px;
   max-width: 300px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -210,166 +206,36 @@ h1::after {
   margin-bottom: 5px;
 }
 
-.card-price {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff0000;
-  margin-top: 10px;
-  left: 0;
-  position: relative;
-}
-
-.btn-buy {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  margin-top: 15px;
-  margin-right: 4px;
-  transition: background-color 0.3s;
-}
-
-.btn-buy:hover {
-  background-color: #0056b3;
-}
-
-#botoes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
-  top: 80px;
-  font-size: small;
-  gap: 10px;
-}
-
-.tabs {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  flex-wrap: nowrap;
-  gap: 10px;
-  left: 60%;
-}
-
-.tab {
-  padding: 5px 20px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s;
-  position: relative;
-  height: auto;
-}
-
-.tab:hover {
-  background-color: #ddd;
-}
-
-.tab.active {
-  color: white;
-  font-weight: bold;
-  border-bottom: 4px solid #eb1c1c;
-}
 
 
-
-
-
+/* Tabs e conteúdo */
 .tab-content {
   display: none;
   padding: 20px;
-  width: 100%;
-  margin-top: 10px; /* valor padrão ou ajustável conforme layout */
-  position: static; /* ou simplesmente remova essa linha */
-  
+  margin-top: 30px;
 }
-
-
 
 .tab-content.active {
-  display: block;
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }
 
-.home {
-  padding: 5px 20px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s;
-  position: relative;
-  text-decoration: none;
-}
-
-.home:hover {
-  background-color: #ddd;
-}
-
-#casa {
-  width: 25px;
-  height: 25px;
-}
-
-
-
-/* RESPONSIVIDADE */
-@media (max-width: 1024px) {
-  #header,
-  #nomes {
-    flex-direction: column;
-    margin-left: 5%;
-    align-items: flex-start;
-  }
-
-  #logo,
-  #letramento {
-    position: static;
-    margin: 20px auto;
-    left: 0;
-    top: 0;
-  }
-
-  .container {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .card {
-    left: 0;
-    margin: 10px auto;
+/* Responsivo */
+@media (max-width: 768px) {
+  .item {
+    max-width: 90%;
   }
 
   .tabs {
     flex-direction: column;
-    margin-left: 0;
-    align-items: center;
+    align-items: flex-end;
+    margin-top: 10px;
+    gap: 10px;
   }
 
-  .tab {
-    left: 0;
-    margin: 5px 0;
+  .tab, .home {
+    font-size: 14px;
   }
-
-  .home {
-    left: 0;
-    margin: 10px auto;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 40px;
-    text-align: center;
-  }
-
-  .card-content {
-    top: 150px;
-    padding: 10px;
-  }
-
 }
