@@ -36,6 +36,89 @@ body::before {
   z-index: -1;
 }
 
+h1 {
+  color: red;
+  margin-bottom: 30%;
+}
+
+input {
+  font-family: 'arial', sans-serif;
+  color: black;         /* ou white, se o fundo for escuro */
+  background-color: white;  /* garante contraste */
+  caret-color: rgb(255, 255, 255);
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1e1e1e; /* fundo escuro inicialmente */
+  color: white;              /* texto branco inicialmente */
+  font-size: 15px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 0 0 1px #444;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+/* Quando o campo está preenchido (tem texto) */
+input[type="email"]:not(:placeholder-shown),
+input[type="password"]:not(:placeholder-shown),
+input[type="text"]:not(:placeholder-shown) {
+  background-color: #f0f0f0; /* fundo claro */
+  color: black;              /* texto preto */
+}
+
+/* Foco */
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  box-shadow: 0 0 5px 2px #ff1a1a;
+}
+
+/* Autofill fix (opcional) */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #f0f0f0 inset !important;
+  -webkit-text-fill-color: black !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+
+
+button {
+  background-color: #b30000; /* vermelho escuro */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 16px;
+   
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  background-color: #ff1a1a;
+  transform: scale(1.03);
+}
+
+button:active {
+  background-color: #990000;
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
 
 #header {
   display: flex;
@@ -104,6 +187,11 @@ body::before {
   padding: 40px 5%;
   width: 100%;
   height: 100%;
+}
+
+.content-reg {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Card */
@@ -196,6 +284,8 @@ body::before {
   justify-content: center;
   gap: 30px;
 }
+
+
 
 /* Responsivo */
 @media (max-width: 768px) {

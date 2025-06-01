@@ -9,8 +9,6 @@
   font-family: "Pirou", sans-serif;
   color: white;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html, body {
@@ -120,23 +118,41 @@ body::before {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: box-shadow 0.5s ease;
   margin: 20px auto;
   width: 90%;
-  max-width: 300px;
-  height: 300px;
+  max-width: 80%;
+  height: 100%;
   font-family: Arial, sans-serif;
   align-items: center;
-  background-image: url("/images/thiago 2025.jpg");
+  outline: none;
+  margin: 10px;  
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
 }
 
+
+
+.item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+
+#card1 {
+  background-image: url("/images/thiago\ 2025.jpg");
+}
 #card2 {
   background-image: url("/images/pre treino.png");
 }
@@ -177,10 +193,10 @@ body::before {
 
 .card-content {
   padding: 15px;
-  position: relative;
-  top: 220px;
   text-align: center;
+  position: relative; /* REMOVA o top */
 }
+
 
 .card-title,
 .card-title-pre {
@@ -205,6 +221,47 @@ body::before {
 .card-benefits li {
   margin-bottom: 5px;
 }
+
+#nomezao {
+  color: red;
+  outline: red;
+
+}
+
+#letramento {
+  max-width: 600px;
+  text-align: left;
+  position: static; /* remove posicionamento antigo */
+}
+
+#logo {
+  height: 300px;
+  margin: 0;
+  position: static; /* remove left, bottom, etc */
+
+  
+}
+
+h1 {
+  font-size: 80px;
+  color: red;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #ffffff, #ff0000);
+}
+
+
 
 
 

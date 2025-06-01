@@ -163,7 +163,7 @@ body::before {
 }
 
 #card1 {
-  background-image: url("/images/peito.png");
+  background-image: url("/images/peito2.png");
 }
 
 /* Cards com imagens específicas */
@@ -176,7 +176,7 @@ body::before {
 }
 
 #card4 {
-  background-image: url("/images/braço.png");
+  background-image: url("/images/abdomen.png");
 }
 
 #card5 {
