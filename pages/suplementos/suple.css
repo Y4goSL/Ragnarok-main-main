@@ -135,7 +135,7 @@ body::before {
   transition: all 0.3s ease;
   background-size: cover;
   background-position: center;
-  bottom: 70px;
+  
 }
 
 .card::before {
@@ -176,15 +176,15 @@ body::before {
 }
 
 #card3 {
-  background-image: url("/images/braço.png");
+  background-image: url("/images/pre-treino.png");
 }
 
 #card4 {
-  background-image: url("/images/abdomen.png");
+  background-image: url("/images/hiper-calorico.png");
 }
 
 #card5 {
-  background-image: url("/images/agachamento.png");
+  background-image: url("/images/vitaminas.png");
 }
 
 /* Tabs e conteúdo */
