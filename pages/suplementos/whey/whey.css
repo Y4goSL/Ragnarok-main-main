@@ -9,12 +9,6 @@
   font-family: "Pirou", sans-serif;
   color: white;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
 }
 
 html, body {
@@ -80,6 +74,10 @@ body::before {
   position: relative;
 }
 
+#tab1 {
+    white-space: nowrap;
+}
+
 .tab{
   height: 35px;
 }
@@ -122,76 +120,127 @@ body::before {
 
 .card {
   position: relative;
-  width: 200px;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(4px);
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 20px;
-  transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 80%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  align-items: center;
+  outline: none;
+  margin: 10px;  
+  
   background-size: cover;
   background-position: center;
-  bottom: 70px;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
-.card:hover {
-  box-shadow: 0 0 20px white;
-  transform: scale(1.02);
-  cursor: pointer;
-}
 
-.card-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
+
+.item a {
+  display: block;
   width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  text-decoration: none;
 }
 
-.card-title, .card-title-pre {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  color: #fff;
-}
 
 #card1 {
-  background-image: url("/images/peito2.png");
+  background-image: url("/images/thiago\ 2025.jpg");
 }
-
-/* Cards com imagens específicas */
 #card2 {
-  background-image: url("/images/costas.png");
+  background-image: url("/images/pre treino.png");
 }
 
 #card3 {
-  background-image: url("/images/braço.png");
+  background-image: url("/images/thiago 2022.png");
 }
 
-#card4 {
-  background-image: url("/images/abdomen.png");
-}
-
+#card4,
 #card5 {
-  background-image: url("/images/agachamento.png");
+  left: 0;
+  position: relative;
 }
+
+.card::before,
+#card2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px #ffffff;
+  cursor: pointer;
+}
+
+
+#nomezao {
+  color: red;
+  outline: red;
+
+}
+
+#letramento {
+  max-width: 600px;
+  text-align: left;
+  position: static; /* remove posicionamento antigo */
+}
+
+#logo {
+  height: 300px;
+  margin: 0;
+  position: static; /* remove left, bottom, etc */
+
+  
+}
+
+h1 {
+  font-size: 80px;
+  color: red;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #ffffff, #ff0000);
+}
+
+
+
+
 
 /* Tabs e conteúdo */
 .tab-content {
   display: none;
   padding: 20px;
   margin-top: 30px;
+   display: flex;
+  flex-direction: flex; /* um abaixo do outro */
+  align-items: flex-start; /* alinha à esquerda */
+  margin-left: 30px; /* opcional: afasta da borda da tela */
 }
 
 .tab-content.active {
@@ -199,6 +248,41 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+.card h2 {
+  margin-top: 12px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#supino-incli {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 /* Responsivo */

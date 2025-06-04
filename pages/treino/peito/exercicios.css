@@ -1,0 +1,348 @@
+@font-face {
+  font-family: "Pirou";
+  src: url("/font/Pirou-Regular.woff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "Pirou", sans-serif;
+  color: white;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url("/images/fundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: -1;
+}
+
+
+#header {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 10px;
+  position: relative;
+}
+
+#nomes {
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.halter {
+  position: relative;
+  height: 30px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  gap: 20px;
+}
+
+.tab, .home {
+  padding: 5px 15px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  left: 300px;
+  position: relative;
+}
+
+.tab{
+  height: 35px;
+}
+
+.tab:hover, .home:hover {
+  background-color: #333;
+}
+
+.tab.active {
+  border-bottom: 4px solid #eb1c1c;
+}
+
+.home img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Container dos cards */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 40px 5%;
+  width: 100%;
+  height: 100%;
+}
+
+/* Card */
+.item {
+  flex: 1 1 300px;
+  max-width: 300px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 80%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  align-items: center;
+  outline: none;
+  margin: 10px;  
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+
+
+.item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+
+#card1 {
+  background-image: url("/images/thiago\ 2025.jpg");
+}
+#card2 {
+  background-image: url("/images/pre treino.png");
+}
+
+#card3 {
+  background-image: url("/images/thiago 2022.png");
+}
+
+#card4,
+#card5 {
+  left: 0;
+  position: relative;
+}
+
+.card::before,
+#card2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px #ffffff;
+  cursor: pointer;
+}
+
+.card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-right: 2px solid #ddd;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: center;
+  position: relative; /* REMOVA o top */
+}
+
+
+.card-title,
+.card-title-pre {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card-benefits {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+  color: #444;
+}
+
+.card-benefits li {
+  margin-bottom: 5px;
+}
+
+#nomezao {
+  color: red;
+  outline: red;
+
+}
+
+#letramento {
+  max-width: 600px;
+  text-align: left;
+  position: static; /* remove posicionamento antigo */
+}
+
+#logo {
+  height: 300px;
+  margin: 0;
+  position: static; /* remove left, bottom, etc */
+
+  
+}
+
+h1 {
+  font-size: 80px;
+  color: red;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, #ffffff, #ff0000);
+}
+
+
+
+
+
+/* Tabs e conteúdo */
+.tab-content {
+  display: none;
+  padding: 20px;
+  margin-top: 30px;
+   display: flex;
+  flex-direction: flex; /* um abaixo do outro */
+  align-items: flex-start; /* alinha à esquerda */
+  margin-left: 30px; /* opcional: afasta da borda da tela */
+}
+
+.tab-content.active {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.img-gif {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* ou 'cover' se quiser preencher */
+  border-radius: 30px;
+  background-color: white;
+  padding: 10px;
+}
+
+.card-gif {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 250px;
+}
+
+.card-gif:hover {
+  transform: scale(1.05); /* aumenta levemente o card */
+  transition: 0.5s;
+}
+
+.card-gif::after{
+  transform: scale(1.05); /* aumenta levemente o card */
+  transition: 0.5s;
+}
+
+a{
+  text-decoration: none;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: white
+}
+
+
+
+#supino-incli {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .item {
+    max-width: 90%;
+  }
+
+  .tabs {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .tab, .home {
+    font-size: 14px;
+  }
+}
